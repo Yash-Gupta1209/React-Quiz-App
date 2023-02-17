@@ -15,7 +15,11 @@ const ScorePage = () => {
             <div className='answer'>
               <p>Q{index + 1}. {question.question}</p>
               <p className={question.answer === state.submittedData[index] ? "correct" : "incorrect"}>
-                Your Answer: {question.answer}
+                {
+                  state.submittedData[index] 
+                  ? `Your Answer: ${state.submittedData[index]}`
+                  : "Not Answered"
+                }
               </p>
             </div>
           ))}
