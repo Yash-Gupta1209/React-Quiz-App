@@ -1,9 +1,7 @@
 import React from 'react'
 
 const Question = ({ currentQuestion, activeQuestion, submittedData, updateSubmission, selectedOption }) => {
-    console.log("submittedData", submittedData)
-    console.log("activeQuestion", activeQuestion)
-    console.log("vv", selectedOption, activeQuestion.text)
+
     return (
         <div>
             <h1 className='question'>{activeQuestion.question}</h1>
