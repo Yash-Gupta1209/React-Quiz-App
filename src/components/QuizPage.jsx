@@ -19,15 +19,14 @@ const QuizPage = () => {
       }
     })
     setScore(score);
-    navigate('/score', { state: { score: score } })
+    navigate('/score', { state: { 
+      score: score,
+      submittedData: submittedData
+    }})
   }
   console.log("Questions DAta", QuestionsData);
   return (
-    <div>
-      {
-        currentQuestion > 0 && <button onClick={() => setCurrentQuestion(currentQuestion - 1)}>Back</button>
-      }
-
+    <div className='box'>
       <Question
         currentQuestion={currentQuestion}
         activeQuestion={QuestionsData[currentQuestion]}
@@ -35,12 +34,36 @@ const QuizPage = () => {
         updateSubmission={updateSubmission}
         selectedOption={submittedData[currentQuestion]}
       />
-
-      {
-        currentQuestion < QuestionsData.length - 1
-          ? <button onClick={() => setCurrentQuestion(currentQuestion + 1)}>Next</button>
-          : <button onClick={() => calculateScore()}>Submit</button>
-      }
+      <div className='textcenter'>
+        {
+          <button
+            className={`btn ${currentQuestion == 0 && 'disabled'}`}
+            onClick={() => setCurrentQuestion(currentQuestion - 1)}
+            disabled={currentQuestion === 0}
+          >
+            Back
+          </button>
+        }
+        {
+          currentQuestion < QuestionsData.length - 1
+            ? <button
+              className={`btn ${!submittedData[currentQuestion] ? 'disabled' : ""}`}
+              onClick={() => setCurrentQuestion(currentQuestion + 1)}
+              disabled={!submittedData[currentQuestion]}
+              title={submittedData[currentQuestion] ? "" : "Select Option First"}
+            >
+              Next
+            </button>
+            : <button
+              className={`btn ${!submittedData[currentQuestion] ? 'disabled' : ""}`}
+              onClick={() => calculateScore()}
+              disabled={!submittedData[currentQuestion]}
+              title={submittedData[currentQuestion] ? "" : "Select Option First"}
+            >
+              Submit
+            </button>
+        }
+      </div>
     </div>
   )
 }

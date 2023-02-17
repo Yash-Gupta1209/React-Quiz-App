@@ -5,11 +5,20 @@ const WelcomePage = () => {
   const navigate = useNavigate()
 
   return (
-    <div>
-      <h1>Welcome to the Challenge!</h1>
-      <p>You will be presented with 3 MCQs.</p>
-      <p>Can you score 100%?</p>
-      <button onClick={() => navigate('/quiz') }>Start Quiz</button>
+    <div className='box textcenter'>
+      <h1 className='title'>Welcome to the Challenge!</h1>
+      <div className='description'>
+        <p>You will be presented with 3 MCQs.</p>
+        <p>Can you score 100%?</p>
+      </div>
+      <div>
+        <button
+          className='btn'
+          onClick={() => navigate('/quiz')}
+        >
+          Start Quiz
+        </button>
+      </div>
     </div>
   )
 }

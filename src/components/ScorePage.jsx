@@ -1,11 +1,33 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { QuestionsData } from './QuestionsData';
+
 const ScorePage = () => {
   const { state } = useLocation();
-  console.log(state, "state")
+  const navigate = useNavigate();
   return (
-    <div>
-      <h1>Score: {state.score}</h1>
+    <div className='box score-box'>
+      <h1 className='textcenter'>Congratulations</h1>
+      <h2 className='textcenter score'>Your Score: {state.score}</h2>
+      <div className='answers'>
+        {
+          QuestionsData.map((question, index) => (
+            <div className='answer'>
+              <p>Q{index + 1}. {question.question}</p>
+              <p className={question.answer === state.submittedData[index] ? "correct" : "incorrect"}>
+                Your Answer: {question.answer}
+              </p>
+            </div>
+          ))}
+      </div>
+      <div>
+        <button
+          className='btn textcenter'
+          onClick={() => navigate('/')}
+        >
+          Start Again
+        </button>
+      </div>
     </div>
   )
 }

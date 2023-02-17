@@ -6,11 +6,13 @@ import WelcomePage from "./components/WelcomePage";
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<WelcomePage />} />
-        <Route path="/quiz" element={<QuizPage />} />
-        <Route path="/score" element={<ScorePage />} />
+      <div className="box-container">
+        <Routes>
+          <Route path="/" element={<WelcomePage />} />
+          <Route path="/quiz" element={<QuizPage />} />
+          <Route path="/score" element={<ScorePage />} />
         </Routes>
+      </div>
     </BrowserRouter>
   );
 }

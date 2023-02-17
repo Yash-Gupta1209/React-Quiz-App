@@ -6,20 +6,22 @@ const Question = ({ currentQuestion, activeQuestion, submittedData, updateSubmis
     console.log("vv", selectedOption, activeQuestion.text)
     return (
         <div>
-            <h1>{activeQuestion.question}</h1>
-            {
-                activeQuestion.options.map((option) => (
-                    <label>
-                        <input
-                            type="radio"
-                            value={option.text}
-                            checked={selectedOption == option.text}
-                            onChange={() => updateSubmission(currentQuestion, option.text)}
-                        />
-                        {option.text}
-                    </label>
-                ))
-            }
+            <h1 className='question'>{activeQuestion.question}</h1>
+            <div className='options'>
+                {
+                    activeQuestion.options.map((option) => (
+                        <label>
+                            <input
+                                type="radio"
+                                value={option.text}
+                                checked={selectedOption == option.text}
+                                onChange={() => updateSubmission(currentQuestion, option.text)}
+                            />
+                            {option.text}
+                        </label>
+                    ))
+                }
+            </div>
         </div>
     )
 }
