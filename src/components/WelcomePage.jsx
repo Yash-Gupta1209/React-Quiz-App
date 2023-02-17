@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import { QuestionsData } from './QuestionsData'
 const WelcomePage = () => {
   const navigate = useNavigate()
 
@@ -8,7 +8,7 @@ const WelcomePage = () => {
     <div className='box textcenter'>
       <h1 className='title'>Welcome to the Challenge!</h1>
       <div className='description'>
-        <p>You will be presented with 3 MCQs.</p>
+        <p>You will be presented with {QuestionsData.length} MCQs.</p>
         <p>Can you score 100%?</p>
       </div>
       <div>
