@@ -39,7 +39,6 @@ const QuizPage = () => {
       }
     })
   }
-  console.log("Questions NUmber", currentQuestion)
   return (
     <div className='quiz-box'>
       <div className='box'>
