@@ -107,13 +107,19 @@
     margin: 2px 0;
 }
 
-.answer{
-    margin: 0.6rem 0;
-}
 .answer .correct{
     color: green;
 }
 
 .answer .incorrect{
     color: red;
+}
+
+.review-answer-btn{
+    background: transparent;
+    border: 1px solid black;
+    padding: 3px 1rem;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 8px 1rem;
 }

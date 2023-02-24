@@ -12,10 +12,10 @@ const QuizPage = () => {
   const navigate = useNavigate();
 
   const timerId = setTimeout(() => {
-    if(totalTime === 0) {
+    if (totalTime === 0) {
       calculateScore();
     }
-    else{
+    else {
       setTotalTime(totalTime - 1)
     }
   }, 1000)
@@ -39,7 +39,7 @@ const QuizPage = () => {
       }
     })
   }
-
+  console.log("Questions NUmber", currentQuestion)
   return (
     <div className='quiz-box'>
       <div className='box'>
@@ -55,7 +55,7 @@ const QuizPage = () => {
           {
             <button
               className={`btn ${currentQuestion == 0 && 'disabled'}`}
-              onClick={() => setCurrentQuestion(currentQuestion - 1)}
+              onClick={() => setCurrentQuestion((prevQuestion) => currentQuestion - 1)}
               disabled={currentQuestion === 0}
             >
               Back
@@ -65,7 +65,7 @@ const QuizPage = () => {
             currentQuestion < QuestionsData.length - 1
               ? <button
                 className={`btn ${!submittedData[currentQuestion] ? 'disabled' : ""}`}
-                onClick={() => setCurrentQuestion(currentQuestion + 1)}
+                onClick={() => setCurrentQuestion((prevQuestion) => prevQuestion + 1)}
                 disabled={!submittedData[currentQuestion]}
                 title={submittedData[currentQuestion] ? "" : "Select Option First"}
               >
@@ -82,7 +82,10 @@ const QuizPage = () => {
           }
         </div>
       </div>
-      <ReviewAnswer submittedData={submittedData} />
+      <ReviewAnswer
+        submittedData={submittedData}
+        setCurrentQuestion={setCurrentQuestion}
+      />
     </div>
   )
 }
