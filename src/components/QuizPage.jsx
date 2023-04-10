@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import ReviewAnswer from './ReviewAnswer';
 
 const QuizPage = () => {
-  const TIME_FOR_ONE_QUESTION = 60;
+  const TIME_FOR_ONE_QUESTION = 30;
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [submittedData, setSubmittedData] = useState({});
   const [totalTime, setTotalTime] = useState(TIME_FOR_ONE_QUESTION * QuestionsData.length);
